@@ -1,6 +1,5 @@
-
 body {
-  background-color: #23272A; /* Discord's dark theme color */
+  background-color: #23272A; /* Discord dark theme color */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,26 +8,49 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.discord-button {
-  background-color: #7289DA; /* Discord's primary color */
-  color: white;
-  border: none;
-  padding: 15px 30px;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.discord-button, .google-button {
+  width: 250px;
+  padding: 15px 0;
   font-size: 16px;
   font-weight: bold;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  color: white;
+}
+
+.discord-button {
+  background-color: #7289DA; /* Discord's primary color */
 }
 
 .discord-button:hover {
-  background-color: #5b6eae; /* Slightly darker for hover effect */
+  background-color: #5b6eae;
 }
 
 .discord-button:active {
-  background-color: #4e5c96; /* Even darker on active click */
+  background-color: #4e5c96;
 }
 
-.discord-button:focus {
-  outline: none; /* Removes focus outline */
+.google-button {
+  background-color: #DB4437; /* Google's brand color */
+}
+
+.google-button:hover {
+  background-color: #c2352d; /* Darker red on hover */
+}
+
+.google-button:active {
+  background-color: #a62e23;
+}
+
+.google-button:focus, .discord-button:focus {
+  outline: none;
 }
