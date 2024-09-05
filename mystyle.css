@@ -1,1 +1,34 @@
 
+body {
+  background-color: #23272A; /* Discord's dark theme color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.discord-button {
+  background-color: #7289DA; /* Discord's primary color */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.discord-button:hover {
+  background-color: #5b6eae; /* Slightly darker for hover effect */
+}
+
+.discord-button:active {
+  background-color: #4e5c96; /* Even darker on active click */
+}
+
+.discord-button:focus {
+  outline: none; /* Removes focus outline */
+}
