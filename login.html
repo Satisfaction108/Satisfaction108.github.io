@@ -3,12 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <title>Login with Discord</title>
+    <title>Discord Login</title>
 </head>
 <body>
-    <a href="https://discord.com/oauth2/authorize?client_id=1283103158012219455&response_type=code&redirect_uri=https%3A%2F%2Fsatisfaction108.github.io&scope=identify">
-        <button class="login-btn">Login with Discord</button>
-    </a>
+    <div id="content">
+        <button id="login-btn">Login with Discord</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+
+        if (code) {
+            // Exchange the code with the Vercel API
+            fetch(`https://your-vercel-project.vercel.app/api/discord?code=${code}`)
+                .then(response => response.json())
+                .then(data => {
+                    const contentDiv = document.getElementById('content');
+                    contentDiv.innerHTML = `
+                        <h1>Welcome, ${data.username}!</h1>
+                        <img src="${data.avatar}" alt="Profile Picture">
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        } else {
+            document.getElementById('login-btn').onclick = () => {
+                window.location.href = 'https://discord.com/oauth2/authorize?client_id=1283103158012219455&response_type=code&redirect_uri=https%3A%2F%2Fsatisfaction108.github.io&scope=identify';
+            };
+        }
+    </script>
 </body>
 </html>
