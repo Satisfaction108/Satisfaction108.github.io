@@ -37,7 +37,7 @@
         const code = urlParams.get('code');
 
         if (code) {
-            fetch(`https://your-vercel-project.vercel.app/api/discord?code=${code}`)
+            fetch(`https://satisfaction108-github-io.vercel.app/api/discord?code=${code}`)
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('profile-pic').src = data.avatar;
