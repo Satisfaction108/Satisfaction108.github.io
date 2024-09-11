@@ -3,57 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Login</title>
+    <title>Login with Discord</title>
     <style>
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #7289DA;
+            margin: 0;
+            background-color: #2C2F33;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
         }
         .login-btn {
-            padding: 20px;
+            padding: 15px 30px;
             font-size: 18px;
             background-color: #5865F2;
             color: white;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
-            border-radius: 10px;
             transition: background-color 0.3s;
         }
         .login-btn:hover {
             background-color: #4752C4;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    <div id="content">
-        <button id="login-btn">Login with Discord</button>
+    <div class="container">
+        <h1>Login with Discord</h1>
+        <a href="https://discord.com/oauth2/authorize?client_id=1283103158012219455&response_type=code&redirect_uri=https%3A%2F%2Fsatisfaction108.github.io%2Fdashboard.html&scope=identify">
+            <button class="login-btn">Login with Discord</button>
+        </a>
     </div>
-
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get('code');
-
-        if (code) {
-            // Exchange the code with the Vercel API
-            fetch(`https://your-vercel-project.vercel.app/api/discord?code=${code}`)
-                .then(response => response.json())
-                .then(data => {
-                    const contentDiv = document.getElementById('content');
-                    contentDiv.innerHTML = `
-                        <h1>Welcome, ${data.username}!</h1>
-                        <img src="${data.avatar}" alt="Profile Picture">
-                    `;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        } else {
-            document.getElementById('login-btn').onclick = () => {
-                window.location.href = 'https://discord.com/oauth2/authorize?client_id=1283103158012219455&response_type=code&redirect_uri=https%3A%2F%2Fsatisfaction108.github.io&scope=identify';
-            };
-        }
-    </script>
 </body>
 </html>
